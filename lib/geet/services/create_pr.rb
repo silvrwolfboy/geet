@@ -28,7 +28,7 @@ module Geet
         ensure_clean_tree if automated_mode
 
         # See CreateIssue#execute for notes about performance.
-        user_has_write_permissions = @repository.authenticated_user.is_collaborator? &&
+        user_has_write_permissions = @repository.authenticated_user.collaborator? &&
                                      @repository.authenticated_user.has_permission?(PERMISSION_WRITE)
 
         if user_has_write_permissions

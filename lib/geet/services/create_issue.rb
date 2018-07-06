@@ -19,12 +19,12 @@ module Geet
           labels: nil, milestone: nil, assignees: nil, no_open_issue: nil,
           **
       )
-        # Inefficient (in worst case, triples the pre issue creation waiting time: #is_collaborator?,
+        # Inefficient (in worst case, triples the pre issue creation waiting time: #collaborator?,
         # #has_permissions?, and the attributes batch), but not trivial to speed up. Not difficult
         # either, but currently not worth spending time.
         #
-        # Theoretically, #is_collaborator? could be skipped, but this is cleaner.
-        user_has_write_permissions = @repository.authenticated_user.is_collaborator? &&
+        # Theoretically, #collaborator? could be skipped, but this is cleaner.
+        user_has_write_permissions = @repository.authenticated_user.collaborator? &&
                                      @repository.authenticated_user.has_permission?(PERMISSION_WRITE)
 
         if user_has_write_permissions

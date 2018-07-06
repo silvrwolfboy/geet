@@ -25,7 +25,7 @@ module Geet
 
       # Endpoint: https://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-collaborator
       #
-      def is_collaborator?
+      def collaborator?
         api_path = "collaborators/#{@username}"
 
         begin
